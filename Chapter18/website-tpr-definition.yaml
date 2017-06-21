@@ -1,0 +1,7 @@
+apiVersion: extensions/v1beta1
+kind: ThirdPartyResource
+metadata:
+  name: website.extensions.example.com
+description: Deploys a web server serving static content pulled from a git repo. 
+versions:
+- name: v1

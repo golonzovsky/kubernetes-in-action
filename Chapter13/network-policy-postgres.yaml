@@ -1,0 +1,15 @@
+apiVersion: extensions/v1beta1
+kind: NetworkPolicy
+metadata:
+  name: postgres-netpolicy
+spec:
+  podSelector:
+    matchLabels:
+      app: database
+  ingress:
+  - from:
+    - podSelector:
+        matchLabels:
+          component: webserver
+    ports:
+    - port: 5432
