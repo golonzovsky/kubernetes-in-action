@@ -1,8 +1,11 @@
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1beta2
 kind: DaemonSet
 metadata:
   name: ssd-monitor
 spec:
+  selector:
+    matchLabels:
+      app: ssd-monitor
   template:
     metadata:
       labels:

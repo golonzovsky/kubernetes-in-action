@@ -1,15 +1,15 @@
 apiVersion: networking.k8s.io/v1
 kind: NetworkPolicy
 metadata:
-  name: postgres-netpolicy
+  name: egress-net-policy
 spec:
   podSelector:
     matchLabels:
-      app: database
-  ingress:
-  - from:
+      app: webserver
+  egress:
+  - to:
     - podSelector:
         matchLabels:
-          app: webserver
+          app: database
     ports:
     - port: 5432

@@ -1,5 +1,5 @@
 apiVersion: apps/v1beta2
-kind: ReplicaSet
+kind: Deployment
 metadata:
   name: kubia
 spec:
@@ -9,9 +9,13 @@ spec:
       app: kubia
   template:
     metadata:
+      name: kubia
       labels:
         app: kubia
     spec:
       containers:
-      - name: kubia
-        image: luksa/kubia
+      - image: luksa/kubia:v1
+        name: nodejs
+        resources:
+          requests:
+            cpu: 100m
